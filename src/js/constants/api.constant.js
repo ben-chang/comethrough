@@ -1,2 +1,2 @@
 angular.module('comethrough')
-  .constant('API', `${window.location.origin}`);
+  .constant('API', `${window.location.origin}/api`);

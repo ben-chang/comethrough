@@ -14,15 +14,15 @@ function Router($stateProvider, $locationProvider, $urlRouterProvider) {
     })
     .state('register', {
       url: '/register',
-      templateUrl: '/js/views/auth/register.html'
-      // controller: 'RegisterCtrl',
-      // controllerAs: 'register'
+      templateUrl: '/js/views/auth/register.html',
+      controller: 'RegisterCtrl',
+      controllerAs: 'register'
     })
     .state('login', {
       url: '/login',
-      templateUrl: '/js/views/auth/login.html'
-      // controller: 'LoginCtrl',
-      // controllerAs: 'login'
+      templateUrl: '/js/views/auth/login.html',
+      controller: 'LoginCtrl',
+      controllerAs: 'login'
     });
 
   $urlRouterProvider.otherwise('/');
