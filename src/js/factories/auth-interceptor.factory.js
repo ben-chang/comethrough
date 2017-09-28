@@ -9,7 +9,6 @@ function AuthInterceptor(API, TokenService) {
       if (req.url.indexOf(API) === 0 && token) {
         req.headers.Authorization = `Bearer ${token}`;
       }
-      console.log(req);
       return req;
     },
     response(res) {
