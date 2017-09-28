@@ -9,5 +9,7 @@ routes.route('/login')
 
 routes.route('/users')
   .get(users.index);
+routes.route('/users/:id')
+  .get(users.show);
 
 module.exports = routes;

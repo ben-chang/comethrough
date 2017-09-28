@@ -1,8 +1,8 @@
 angular.module('comethrough')
   .controller('RegisterCtrl', RegisterCtrl);
 
-RegisterCtrl.$inject = ['User'];
-function RegisterCtrl(User) {
+RegisterCtrl.$inject = ['User', 'CurrentUserService'];
+function RegisterCtrl(User, CurrentUserService) {
   const vm = this;
   vm.user = {};
   vm.register = register;
@@ -10,8 +10,8 @@ function RegisterCtrl(User) {
   function register() {
     User.register(vm.user)
       .$promise
-      .then(data => {
-        console.log(data);
+      .then(() => {
+        CurrentUserService.getUser();
       });
   }
 }

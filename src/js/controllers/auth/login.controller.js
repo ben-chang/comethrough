@@ -1,8 +1,8 @@
 angular.module('comethrough')
   .controller('LoginCtrl', LoginCtrl);
 
-LoginCtrl.$inject = ['User'];
-function LoginCtrl(User) {
+LoginCtrl.$inject = ['User', 'CurrentUserService', '$state'];
+function LoginCtrl(User, CurrentUserService, $state) {
   const vm = this;
   vm.user = {};
   vm.login = login;
@@ -10,8 +10,9 @@ function LoginCtrl(User) {
   function login() {
     User.login(vm.user)
       .$promise
-      .then(data => {
-        console.log(data);
+      .then(() => {
+        CurrentUserService.getUser();
+        $state.go('splash');
       });
   }
 }
