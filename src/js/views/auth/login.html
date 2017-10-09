@@ -1,5 +1,5 @@
 <h1>login!</h1>
-
+<h3 ng-show="login.error">{{login.error.data.message}}</h3>
 <form ng-submit="login.login()">
   <div class="">
     <input type="email" placeholder="email" ng-model="login.user.email">

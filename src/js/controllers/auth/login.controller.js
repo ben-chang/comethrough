@@ -10,9 +10,13 @@ function LoginCtrl(User, CurrentUserService, $state) {
   function login() {
     User.login(vm.user)
       .$promise
-      .then(() => {
+      .then((res) => {
         CurrentUserService.getUser();
-        $state.go('splash');
+        setTimeout(() => {
+          $state.go('usersShow', { id: res.data.id });
+        }, 50);
+      }, (err) => {
+        vm.error = err;
       });
   }
 }

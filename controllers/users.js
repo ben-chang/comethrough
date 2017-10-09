@@ -24,7 +24,20 @@ function userShow(req, res) {
     });
 }
 
+function usersUpdate(req, res) {
+  User.findByIdAndUpdate(req.params.id, req.body)
+    .exec()
+    .then(data => {
+      if (!data) return res.status(404).json({ message: 'Error: Not found.'});
+      res.status(200).json(data);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+}
+
 module.exports = {
   index: userIndex,
-  show: userShow
+  show: userShow,
+  update: usersUpdate
 };

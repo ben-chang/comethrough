@@ -7,7 +7,9 @@ const userSchema = new mongoose.Schema({
   firstname: { type: String, required: true },
   lastname: { type: String, required: true },
   email: { type: String, required: true },
-  passwordHash: { type: String, required: true }
+  passwordHash: { type: String, required: true },
+  currentLocation: { type: String },
+  comethroughStatus: { type: Boolean, required: true }
 }, {
   timestamps: true
 });

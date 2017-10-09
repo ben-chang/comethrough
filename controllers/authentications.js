@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/config.js');
 
 function register(req, res) {
+  req.body.comethroughStatus = false;
   User.create(req.body)
     .then(data => {
       const token = jwt.sign({ id: data.id}, config.secret, { expiresIn: 86400 });
